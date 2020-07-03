@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Scanned By</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>List of Scanned By</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>PD_ID</th>
+                        <th> Scanned By</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr th:each="detail : ${detailsInfo}">
+                        <td><span th:text="${detail.pdId}"></span></td>
+                        <td><span th:text="${detail.scannedBy}"></span></td>
+                        <td><a th:href="@{/listall(scannedby=${detail.scannedBy})}">Click Me!</a></span></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

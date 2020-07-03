@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>All</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>Person Information that not from United States</h1>
+            
+            <a href="/qualifiedcheck?condition=qualified">Show Qualified Person Information</a>
+            <a href="/qualifiedcheck?condition=disqualified">Show Disqualified Person Information</a>
+            <a href="/scannedby">Show Scanned By</a>
+            <br/>
+            <table>
+                <thead>
+                    <tr>
+                        <th> Event Name </th>
+                        <th> Scanned Date</th>
+                        <th> Scanned Time</th>
+                        <th> First Name </th>
+                        <th> Middle Name </th>
+                        <th> Last Name </th>
+                        <th> Email 1</th>
+                        <th> Email 2</th>
+                        <th> Company</th>
+                        <th> job Title</th>
+                        <th> Address 1</th>
+                        <th> Address 2</th>
+                        <th> Address 3</th>
+                        <th> City</th>
+                        <th> State Id</th>
+                        <th> Zip</th>
+                        <th> Country Id</th>
+                        <th> Phone No</th>
+                        <th> Phone No 2</th>
+                        <th> Fax No</th>
+                        <th> Question</th>
+                        <th> Response</th>
+                        <th> Note</th>
+                        <th> Collateral</th>
+                        <th> Qualified Disqualified</th>
+                        <th> scanned By</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr th:each="detail : ${detailsInfo}">
+                       
+                        <td><span th:text="${detail.eventName}"></span></td>
+                        <td><span th:text="${detail.scannedDate}"></span></td>
+                       <td><span th:text="${detail.scannedTime}"></span></td>
+
+                        <td>
+                            <p th:each="general : ${generalInfo}" th:if="(${general.id} == ${detail.personGeneralInformation.id})" th:text="${general.firstName}"></p>
+                        </td>
+                        <td>
+                            <p th:each="general : ${generalInfo}" th:if="(${general.id} == ${detail.personGeneralInformation.id})" th:text="${general.middleInitial}"></p>
+                        </td>
+                        <td>
+                            <p th:each="general : ${generalInfo}" th:if="(${general.id} == ${detail.personGeneralInformation.id})" th:text="${general.lastName}"></p>
+                        </td>
+                        <td>
+                            <p th:each="general : ${generalInfo}" th:if="(${general.id} == ${detail.personGeneralInformation.id})" th:text="${general.email}"></p>
+                        </td>
+                        <td>
+                            <p th:each="general : ${generalInfo}" th:if="(${general.id} == ${detail.personGeneralInformation.id})" th:text="${general.email2}"></p>
+                        </td>
+
+                        <td><span th:text="${detail.company}"></span></td>
+                        <td><span th:text="${detail.jobTitle}"></span></td>
+                        <td><span th:text="${detail.address1}"></span></td>
+                        <td><span th:text="${detail.address2}"></span></td>
+                        <td><span th:text="${detail.address3}"></span></td>
+                        <td><span th:text="${detail.city}"></span></td>
+                        <td><span th:text="${detail.stateId}"></span></td>
+                        <td><span th:text="${detail.zip}"></span></td>
+                        <td><span th:text="${detail.countryId}"></span></td>
+                        <td><span th:text="${detail.phoneNumber}"></span></td>
+                        <td><span th:text="${detail.phoneNumber2}"></span></td>
+                        <td><span th:text="${detail.faxNumber}"></span></td>
+                        <td><span th:text="${detail.question}"></span></td>
+                        <td><span th:text="${detail.response}"></span></td>
+                        <td><span th:text="${detail.note}"></span></td>
+                        <td><span th:text="${detail.collateral}"></span></td>
+                        <td><span th:text="${detail.qualifiedOrDisqualified}"></span></td>
+                         <td><span th:text="${detail.scannedBy}"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
